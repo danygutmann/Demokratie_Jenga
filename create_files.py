@@ -28,7 +28,6 @@ def sanitize_filename(name: str) -> str:
     name = name.strip()
     name = re.sub(r'[\\/:*?"<>|]+', "_", name)
     return name
-
 def estimate_font_size(word: str):
     inner_w = BOX_W_MM - 2 * MARGIN_MM
     inner_h = BOX_H_MM - 2 * MARGIN_MM
@@ -39,7 +38,6 @@ def estimate_font_size(word: str):
         int(inner_w * 1.8 / max(1, len(word)))
     )
     return max(12, size)
-
 def make_svg(word: str):
     font_size = estimate_font_size(word)
 
@@ -73,7 +71,6 @@ def make_svg(word: str):
 
     dwg.save()
     print(f"Erstellt: {out_path}")
-
 def main():
     for word in WORDS:
         make_svg(word)
